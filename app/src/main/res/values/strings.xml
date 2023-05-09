@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Todo List App</string>
+
+    <string name="todo_list">Todo List</string>
+    <string name="completed_todo">Completed Todo</string>
+    <string name="empty_todo_list">There is no todos here</string>
+
+    <string name="search_todo">Search Todo....</string>
+
+    <string name="todo_delete">Delete Todo</string>
+    <string name="todo_mark_done">Mark as done</string>
+    <string name="todo_unmark_done">Unmark as done</string>
+
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="description_optional">Description (optional)</string>
+    <string name="is_done">Is done</string>
+    <string name="input_title_instruction">Enter todo title</string>
+    <string name="input_description_instruction">Enter todo description</string>
+
+    <string name="input_error_blank">This field shouldn\'t be empty</string>
+
+    <string name="add_todo">Add Todo</string>
+    <string name="add_todo_success">Success add new todo to list</string>
+    <string name="add_todo_fail">Failure. Check your input.</string>
+
+    <string name="about">About</string>
+    <string name="about_name">Faruq Abdul Hakim</string>
+    <string name="about_email">faruqabdulhakim2001@gmail.com</string>
+
+    <string name="cant_find_data">Can\'t find data</string>
+</resources>
