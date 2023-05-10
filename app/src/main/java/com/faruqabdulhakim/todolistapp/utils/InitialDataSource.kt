@@ -1,6 +1,6 @@
 package com.faruqabdulhakim.todolistapp.utils
 
-import com.faruqabdulhakim.todolistapp.data.model.Todo
+import com.faruqabdulhakim.todolistapp.domain.model.Todo
 
 object InitialDataSource {
     fun getTodoList(): List<Todo> {
