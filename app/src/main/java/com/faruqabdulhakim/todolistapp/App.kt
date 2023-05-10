@@ -2,9 +2,9 @@ package com.faruqabdulhakim.todolistapp
 
 import android.app.Application
 import android.content.res.Resources
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
@@ -13,9 +13,7 @@ class App : Application() {
 
     companion object {
         private lateinit var res: Resources
-        private val applicationScope = CoroutineScope(SupervisorJob())
 
         fun getResources() = res
-        fun getApplicationScope() = applicationScope
     }
 }

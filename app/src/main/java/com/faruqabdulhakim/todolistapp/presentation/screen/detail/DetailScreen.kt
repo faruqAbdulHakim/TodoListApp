@@ -33,19 +33,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.faruqabdulhakim.todolistapp.R
-import com.faruqabdulhakim.todolistapp.presentation.ViewModelFactory
 import com.faruqabdulhakim.todolistapp.ui.theme.TodoListAppTheme
 import com.faruqabdulhakim.todolistapp.utils.InitialDataSource
 
 @Composable
 fun DetailScreen(
     modifier: Modifier = Modifier,
-    viewModel: DetailViewModel = viewModel(factory = ViewModelFactory.getInstance(LocalContext.current)),
     onTodoDeleted: () -> Unit = {},
     todoId: Int = -1,
 ) {
+    val viewModel = hiltViewModel<DetailViewModel>()
     val todo by viewModel.todo.collectAsState()
 
     LaunchedEffect(key1 = LocalContext.current) {

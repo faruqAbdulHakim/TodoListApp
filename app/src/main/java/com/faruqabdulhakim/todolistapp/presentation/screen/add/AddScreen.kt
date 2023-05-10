@@ -29,17 +29,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.faruqabdulhakim.todolistapp.R
-import com.faruqabdulhakim.todolistapp.presentation.ViewModelFactory
 import com.faruqabdulhakim.todolistapp.ui.theme.TodoListAppTheme
 
 @Composable
 fun AddScreen(
     modifier: Modifier = Modifier,
-    viewModel: AddViewModel = viewModel(factory = ViewModelFactory.getInstance(LocalContext.current)),
     onAddTodoSuccess: () -> Unit = {},
 ) {
+    val viewModel = hiltViewModel<AddViewModel>()
     Column(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = modifier

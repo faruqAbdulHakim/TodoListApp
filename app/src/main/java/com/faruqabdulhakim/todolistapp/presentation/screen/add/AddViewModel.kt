@@ -5,17 +5,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.faruqabdulhakim.todolistapp.data.model.Todo
+import com.faruqabdulhakim.todolistapp.domain.model.Todo
 import com.faruqabdulhakim.todolistapp.domain.repository.TodoRepository
-import com.faruqabdulhakim.todolistapp.domain.usecase.ValidateTitleInput
+import com.faruqabdulhakim.todolistapp.domain.usecase.ValidateInput
 import com.faruqabdulhakim.todolistapp.domain.usecase.ValidationResult
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
+import javax.inject.Named
 
-class AddViewModel(
+@HiltViewModel
+class AddViewModel @Inject constructor(
     private val todoRepository: TodoRepository,
-    private val validateTitleInput: ValidateTitleInput = ValidateTitleInput()
+    @Named("titleInput") private val validateTitleInput: ValidateInput
 ) : ViewModel() {
 
     var state by mutableStateOf(AddTodoFormState())

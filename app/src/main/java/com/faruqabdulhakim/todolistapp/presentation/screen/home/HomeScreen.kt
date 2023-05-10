@@ -33,19 +33,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.faruqabdulhakim.todolistapp.R
-import com.faruqabdulhakim.todolistapp.data.model.Todo
-import com.faruqabdulhakim.todolistapp.presentation.ViewModelFactory
+import com.faruqabdulhakim.todolistapp.domain.model.Todo
 import com.faruqabdulhakim.todolistapp.ui.theme.TodoListAppTheme
 import com.faruqabdulhakim.todolistapp.utils.InitialDataSource
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = viewModel(factory = ViewModelFactory.getInstance(LocalContext.current)),
     onNavigateToDetail: (todoId: Int) -> Unit = {},
 ) {
+    val viewModel = hiltViewModel<HomeViewModel>()
     val groupedTodoList by viewModel.todoList.collectAsState()
     val query by viewModel.query
 
@@ -75,7 +74,9 @@ fun TodoList(
 ) {
     LazyColumn(
         contentPadding = PaddingValues(16.dp),
-        modifier = modifier.fillMaxSize().testTag("lazy_column")
+        modifier = modifier
+            .fillMaxSize()
+            .testTag("lazy_column")
     ) {
         item {
             SearchBar(
